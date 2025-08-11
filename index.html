@@ -222,63 +222,44 @@ body.dark-mode button {
   transform: scale(1.1);
 }
 
-/* Basic styling for nav list */
 ul {
-  display: flex;
-  gap: 30px;
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  gap: 20px;
 }
 
 ul li a {
   position: relative;
   text-decoration: none;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  color: #fff;
+  font-size: 16px;
+  color: #333;
+  padding: 5px 0;
   transition: color 0.3s ease;
-  display: inline-block;
-
-  /* Start hidden for fade-in animation */
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeSlideIn 0.6s ease forwards;
 }
 
-/* Delay each link animation for a staggered effect */
-ul li:nth-child(1) a { animation-delay: 0.1s; }
-ul li:nth-child(2) a { animation-delay: 0.2s; }
-ul li:nth-child(3) a { animation-delay: 0.3s; }
-ul li:nth-child(4) a { animation-delay: 0.4s; }
-ul li:nth-child(5) a { animation-delay: 0.5s; }
+/* Hover color change */
+ul li a:hover {
+  color: #ff6600;
+}
 
-/* Hover underline effect */
+/* Underline animation */
 ul li a::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
-  bottom: -4px;
-  width: 0%;
+  bottom: -3px;
+  width: 0;
   height: 2px;
-  background-color: #ff9800;
+  background: #ff6600;
   transition: width 0.3s ease;
-}
-
-ul li a:hover {
-  color: #ff9800;
 }
 
 ul li a:hover::after {
   width: 100%;
-}
-
-/* Fade + slide animation */
-@keyframes fadeSlideIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 </style>
@@ -288,7 +269,7 @@ ul li a:hover::after {
 <nav>
   <h2>LOGO</h2>
   <ul>
-    <li><a href="#product">PRODUCT</a></li>
+    <li><a href="#product" class="">PRODUCT</a></li>
     <li><a href="#about">ABOUT</a></li>
     <li><a href="#portfolio">SUPPORT</a></li>
     <li><a href="#team">TEAM</a></li>
@@ -297,7 +278,7 @@ ul li a:hover::after {
 
 </nav>
 
-<header>
+<header class="">
   <h1>Lorem ipsum dolor</h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
   <div class="search-box">
