@@ -222,34 +222,63 @@ body.dark-mode button {
   transform: scale(1.1);
 }
 
+/* Basic styling for nav list */
+ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-
-
-
-/* Wave base style */
-.nav-wave {
+ul li a {
+  position: relative;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  transition: color 0.3s ease;
   display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
+
+  /* Start hidden for fade-in animation */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeSlideIn 0.6s ease forwards;
 }
 
-.nav-wave span {
-  display: inline-block;
-  transform: translateY(0);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+/* Delay each link animation for a staggered effect */
+ul li:nth-child(1) a { animation-delay: 0.1s; }
+ul li:nth-child(2) a { animation-delay: 0.2s; }
+ul li:nth-child(3) a { animation-delay: 0.3s; }
+ul li:nth-child(4) a { animation-delay: 0.4s; }
+ul li:nth-child(5) a { animation-delay: 0.5s; }
+
+/* Hover underline effect */
+ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #ff9800;
+  transition: width 0.3s ease;
 }
 
-/* Wave-Out Animation */
-@keyframes waveOut {
-  0%   { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-100%); opacity: 0; }
+ul li a:hover {
+  color: #ff9800;
 }
 
-/* Wave-In Animation */
-@keyframes waveIn {
-  0%   { transform: translateY(100%); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+ul li a:hover::after {
+  width: 100%;
+}
+
+/* Fade + slide animation */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 </style>
@@ -259,11 +288,11 @@ body.dark-mode button {
 <nav>
   <h2>LOGO</h2>
   <ul>
-    <li><a href="#product" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">P</span><span style="animation: 0.4s 0.05s forwards waveIn;">R</span><span style="animation: 0.4s 0.1s forwards waveIn;">O</span><span style="animation: 0.4s 0.15s forwards waveIn;">D</span><span style="animation: 0.4s 0.2s forwards waveIn;">U</span><span style="animation: 0.4s 0.25s forwards waveIn;">C</span><span style="animation: 0.4s 0.3s forwards waveIn;">T</span></a></li>
-    <li><a href="#about" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">A</span><span style="animation: 0.4s 0.05s forwards waveIn;">B</span><span style="animation: 0.4s 0.1s forwards waveIn;">O</span><span style="animation: 0.4s 0.15s forwards waveIn;">U</span><span style="animation: 0.4s 0.2s forwards waveIn;">T</span></a></li>
-    <li><a href="#portfolio" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">S</span><span style="animation: 0.4s 0.05s forwards waveIn;">U</span><span style="animation: 0.4s 0.1s forwards waveIn;">P</span><span style="animation: 0.4s 0.15s forwards waveIn;">P</span><span style="animation: 0.4s 0.2s forwards waveIn;">O</span><span style="animation: 0.4s 0.25s forwards waveIn;">R</span><span style="animation: 0.4s 0.3s forwards waveIn;">T</span></a></li>
-    <li><a href="#team" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">T</span><span style="animation: 0.4s 0.05s forwards waveIn;">E</span><span style="animation: 0.4s 0.1s forwards waveIn;">A</span><span style="animation: 0.4s 0.15s forwards waveIn;">M</span></a></li>
-    <li><a href="#contact" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">C</span><span style="animation: 0.4s 0.05s forwards waveIn;">O</span><span style="animation: 0.4s 0.1s forwards waveIn;">N</span><span style="animation: 0.4s 0.15s forwards waveIn;">T</span><span style="animation: 0.4s 0.2s forwards waveIn;">A</span><span style="animation: 0.4s 0.25s forwards waveIn;">C</span><span style="animation: 0.4s 0.3s forwards waveIn;">T</span></a></li>
+    <li><a href="#product">PRODUCT</a></li>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#portfolio">SUPPORT</a></li>
+    <li><a href="#team">TEAM</a></li>
+    <li><a href="#contact">CONTACT</a></li>
   </ul>
 
 </nav>
@@ -307,12 +336,6 @@ body.dark-mode button {
 <footer>
   <p>© 2025 ACME Inc. | All rights reserved.</p>
 </footer>
-
-
-
-
-
-
 
 
 
