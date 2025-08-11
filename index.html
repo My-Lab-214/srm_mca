@@ -221,24 +221,55 @@ body.dark-mode button {
   color: red;
   transform: scale(1.1);
 }
+
+
+
+
+
+/* Wave base style */
+.nav-wave {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.nav-wave span {
+  display: inline-block;
+  transform: translateY(0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Wave-Out Animation */
+@keyframes waveOut {
+  0%   { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
+/* Wave-In Animation */
+@keyframes waveIn {
+  0%   { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
 </style>
 </head>
 <body class="dark-mode">
 
-<nav class="">
+<nav>
   <h2>LOGO</h2>
   <ul>
-    <li><a href="#product">PRODUCT</a></li>
-    <li><a href="#about">ABOUT</a></li>
-    <li><a href="#portfolio">SUPPORT</a></li>
-    <li><a href="#team">TEAM</a></li>
-    <li><a href="#contact">CONTACT</a></li>
+    <li><a href="#product" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">P</span><span style="animation: 0.4s 0.05s forwards waveIn;">R</span><span style="animation: 0.4s 0.1s forwards waveIn;">O</span><span style="animation: 0.4s 0.15s forwards waveIn;">D</span><span style="animation: 0.4s 0.2s forwards waveIn;">U</span><span style="animation: 0.4s 0.25s forwards waveIn;">C</span><span style="animation: 0.4s 0.3s forwards waveIn;">T</span></a></li>
+    <li><a href="#about" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">A</span><span style="animation: 0.4s 0.05s forwards waveIn;">B</span><span style="animation: 0.4s 0.1s forwards waveIn;">O</span><span style="animation: 0.4s 0.15s forwards waveIn;">U</span><span style="animation: 0.4s 0.2s forwards waveIn;">T</span></a></li>
+    <li><a href="#portfolio" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">S</span><span style="animation: 0.4s 0.05s forwards waveIn;">U</span><span style="animation: 0.4s 0.1s forwards waveIn;">P</span><span style="animation: 0.4s 0.15s forwards waveIn;">P</span><span style="animation: 0.4s 0.2s forwards waveIn;">O</span><span style="animation: 0.4s 0.25s forwards waveIn;">R</span><span style="animation: 0.4s 0.3s forwards waveIn;">T</span></a></li>
+    <li><a href="#team" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">T</span><span style="animation: 0.4s 0.05s forwards waveIn;">E</span><span style="animation: 0.4s 0.1s forwards waveIn;">A</span><span style="animation: 0.4s 0.15s forwards waveIn;">M</span></a></li>
+    <li><a href="#contact" class="nav-wave"><span style="animation: 0.4s forwards waveIn;">C</span><span style="animation: 0.4s 0.05s forwards waveIn;">O</span><span style="animation: 0.4s 0.1s forwards waveIn;">N</span><span style="animation: 0.4s 0.15s forwards waveIn;">T</span><span style="animation: 0.4s 0.2s forwards waveIn;">A</span><span style="animation: 0.4s 0.25s forwards waveIn;">C</span><span style="animation: 0.4s 0.3s forwards waveIn;">T</span></a></li>
   </ul>
 
 </nav>
 
-<header class="">
-  <h1 class="">Lokash ipsum dolor</h1>
+<header>
+  <h1>Lorem ipsum dolor</h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
   <div class="search-box">
     <input type="text" placeholder="Search...">
@@ -276,6 +307,12 @@ body.dark-mode button {
 <footer>
   <p>© 2025 ACME Inc. | All rights reserved.</p>
 </footer>
+
+
+
+
+
+
 
 
 
