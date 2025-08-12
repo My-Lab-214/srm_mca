@@ -44,15 +44,22 @@
     }
     header {
       text-align: center;
-      padding: 50px 20px 20px;
+      padding: 200px 20px 20px;
       background: white;
+      height: 700px;
     }
-    header h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+   /* Default (light mode) */
+header h1 {
+  font-size: 58px;
+  color: black;
+  margin-bottom: 10px;
+}
+/* Dark mode */
+body.dark-mode header h1 {
+  color: #ffffff;
+}
     header p {
-      font-size: 16px;
+      font-size: 15px;
       color: #777;
       max-width: 600px;
       margin: 0 auto 30px;
@@ -268,7 +275,7 @@ ul li a:hover span:nth-child(9) { animation-delay: 0.4s; }
 
 </style>
 </head>
-<body class="">
+<body>
 
 <nav>
   <h2>NAME</h2>
@@ -285,7 +292,7 @@ ul li a:hover span:nth-child(9) { animation-delay: 0.4s; }
     <span>S</span><span>K</span><span>I</span><span>L</span><span>L</span><span>S</span>
   </a></li>
 
-  <li><a href="#team" class="">
+  <li><a href="#team">
     <span>P</span><span>R</span><span>O</span><span>D</span><span>U</span><span>C</span><span>T</span>
   </a></li>
 
@@ -297,16 +304,12 @@ ul li a:hover span:nth-child(9) { animation-delay: 0.4s; }
 
 </nav>
 
-<header class="">
-  <h1 class="">Lorem ipsum dolor</h1>
+<header>
+  <h1>Your Name Here</h1>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <div class="search-box">
-    <input type="text" placeholder="Search...">
-    <button>SEARCH</button>
-  </div>
 </header>
 
-<h1 style="display: flex; justify-content: center;" class="">Lorem ipsum dolor</h1>
+<h1 style="display: flex; justify-content: center;">Lorem ipsum dolor</h1>
 <div class="grid">
   <div class="card">
     <h3>Lorem Ipsum</h3>
@@ -317,7 +320,7 @@ ul li a:hover span:nth-child(9) { animation-delay: 0.4s; }
     <p>LOREM IPSUM</p>
   </div>
   <div class="card">
-    <h3 class="">Lorem Ipsum</h3>
+    <h3>Lorem Ipsum</h3>
     <p>LOREM IPSUM</p>
   </div>
   <div class="card">
