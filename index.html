@@ -2,60 +2,124 @@
 <html lang="en" style="scrollbar-width: none;"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ediweb by lokash</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">  
-
+  <title>Ediweb by Lokash</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { margin: 0; background: #f9f9f9; color: #333; min-height: 100vh; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    body {
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: background 0.3s, color 0.3s;
+    }
     nav h2 { margin: 0; font-weight: 600; }
-    nav ul { display: flex; gap: 25px; list-style: none; padding: 0; margin: 0; height: 20px; }
-    nav ul li a { text-decoration: none; color: #333; font-weight: 500; }
-    nav ul li a:hover { border-bottom: 2px solid #333; }
-    header { text-align: center; padding: 150px 20px 20px; background: white; height: 550px; }
-    header h1 { font-size: 46px; color: black; margin-bottom: 10px; }
-    body.dark-mode header h1 { color: #ffffff; }
-    header p { font-size: 15px; color: #777; max-width: 600px; margin: 0 auto 30px; }
-    .search-box { display: flex; justify-content: center; margin-bottom: 40px; }
-    .search-box input { padding: 10px; width: 300px; border: 1px solid #ccc; border-radius: 4px 0 0 4px; outline: none; }
-    .search-box button { padding: 10px 20px; background: black; color: white; border: none; border-radius: 0 4px 4px 0; cursor: pointer; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px 40px 60px; max-width: 1200px; margin: auto; }
-    .card { background-color: #eee; border-radius: 10px; min-height: 180px; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; overflow: hidden; color: #1f1f1f; padding: 20px; }
+    nav ul {
+      display: flex; gap: 25px; list-style: none;
+      padding: 0; margin: 0; height: 20px;
+    }
+    nav ul li a {
+      text-decoration: none; color: #333;
+      font-weight: 500; position: relative;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    nav ul li a:hover { border-bottom: 2px solid currentColor; }
+    header {
+      text-align: center; padding: 150px 20px 20px;
+      background: white; height: 550px;
+      transition: background 0.3s, color 0.3s;
+    }
+    header h1 { font-size: 46px; margin-bottom: 10px; color: inherit; }
+    header p { font-size: 15px; max-width: 600px; margin: 0 auto 30px; color: inherit; opacity: 0.8; }
+    .search-box {
+      display: flex; justify-content: center; margin-bottom: 40px;
+    }
+    .search-box input {
+      padding: 10px; width: 300px; border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px; outline: none;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .search-box button {
+      padding: 10px 20px; background: black; color: white;
+      border: none; border-radius: 0 4px 4px 0; cursor: pointer;
+      transition: background 0.3s;
+    }
+    .search-box button:hover { background: #222; }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; padding: 20px 40px 60px; max-width: 1200px; margin: auto;
+    }
+    .card {
+      background-color: #eee; border-radius: 10px; min-height: 180px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      background-size: cover; background-position: center;
+      overflow: hidden; color: #1f1f1f; padding: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
     .card h3 { margin: 0; font-size: 16px; font-weight: 600; }
     .card p { margin: 4px 0 0; font-size: 12px; }
-    footer { text-align: center; padding: 30px; color: #aaa; background: white; }
-    #controls { position: fixed; top: 10px; right: 10px; background: white; border: 1px solid #ccc; padding: 15px; z-index: 1000; display: none; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); font-size: 14px; max-width: 260px; line-height: 1.6; }
-    #deployBtn { position: fixed; bottom: 20px; right: 20px; background: #000; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; z-index: 1000; }
+    footer {
+      text-align: center; padding: 30px;
+      background: white; color: #aaa;
+      transition: background 0.3s, color 0.3s;
+    }
+    #controls {
+      position: fixed; top: 10px; right: 10px;
+      background: white; border: 1px solid #ccc; padding: 15px;
+      z-index: 1000; display: none; border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      font-size: 14px; max-width: 260px; line-height: 1.6;
+    }
+    #deployBtn {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #000; color: white; padding: 10px 20px;
+      border: none; border-radius: 8px; cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s, transform 0.2s;
+    }
+    #deployBtn:hover { background: #222; transform: translateY(-2px); }
     .selected { outline: 2px dashed red; }
+
+    /* Dark mode */
     body.dark-mode { background: #121212; color: #e0e0e0; }
-    body.dark-mode nav, body.dark-mode header, body.dark-mode footer { background: #1f1f1f; }
+    body.dark-mode nav,
+    body.dark-mode header,
+    body.dark-mode footer,
+    body.dark-mode #controls { background: #1f1f1f; color: #e0e0e0; }
     body.dark-mode nav ul li a { color: #e0e0e0; }
-    body.dark-mode .card { background-color: #2a2a2a; }
-    body.dark-mode #controls { background: #1f1f1f; color: #eee; }
-    body.dark-mode input, body.dark-mode button { background: #333; color: #eee; }
+    body.dark-mode .card { background-color: #2a2a2a; color: #f0f0f0; }
+    body.dark-mode input { background: #333; color: #eee; border-color: #555; }
+    body.dark-mode .search-box button { background: #eee; color: #000; }
   </style>
 </head>
-<body class="dark-mode">
-
+<body class="">
 <nav>
-  <h2>Srm Lokash</h2>
+  <h2>NAME</h2>
   <ul>
-    <li><a href="#product"><span>H</span><span>O</span><span>M</span><span>E</span></a></li>
-    <li><a href="#about"><span>A</span><span>B</span><span>O</span><span>U</span><span>T</span></a></li>
-    <li><a href="#portfolio"><span>S</span><span>K</span><span>I</span><span>L</span><span>L</span><span>S</span></a></li>
-    <li><a href="#team"><span>P</span><span>R</span><span>O</span><span>D</span><span>U</span><span>C</span><span>T</span></a></li>
-    <li><a href="#contact"><span>C</span><span>O</span><span>N</span><span>T</span><span>A</span><span>C</span><span>T</span></a></li>
+    <li><a href="#product">HOME</a></li>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#portfolio">SKILLS</a></li>
+    <li><a href="#team">PRODUCT</a></li>
+    <li><a href="#contact">CONTACT</a></li>
   </ul>
   
 </nav>
 
 <header>
-  <h1>Your Name Here</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <h1>Lokash</h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  </p>
 </header>
 
-<section id="about-section" style="padding: 60px 40px; display: flex; align-items: center; gap: 40px; background: white;">
+<section id="about-section" style="padding: 60px 40px; display: flex; align-items: center; gap: 40px; background: white; transition: background 0.3s, color 0.3s;">
   <div class="about-image-wrapper" style="flex: 1; display: flex; justify-content: center; align-items: center;">
     <img src="https://via.placeholder.com/400" alt="About Image" style="width: 100%; max-width: 400px; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px;">
   </div>
